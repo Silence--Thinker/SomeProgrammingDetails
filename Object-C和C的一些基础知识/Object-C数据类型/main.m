@@ -300,6 +300,8 @@ void arrayPointer() {
 // 函数指针的使用
 void functionPointer() {}
 
+// goto语句 union(联合) sizeof运算符
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        enumDefine();
