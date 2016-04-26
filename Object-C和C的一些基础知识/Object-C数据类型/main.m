@@ -294,13 +294,100 @@ void structPointer() {
 
 // 指针 与 数组、字符串的结合使用
 void arrayPointer() {
-
+    const int n = 10;
+    int values[n] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    
+    // 取值方式
+    int *valuesPtr = values;
+    kPrintlnt(*valuesPtr);          // 10 = values[0]
+    kPrintlnt(*valuesPtr + 3);      // 13 = values[0] + 3
+    kPrintlnt(*(valuesPtr + 3));    // 40 = values[3]
+    
+    int *ptr = &values[5];       // =>> int *ptr = valuesPtr + 5
+    kPrintlnt(*ptr);
+    
+    ptr = valuesPtr + 6;
+    kPrintlnt(*ptr);
+    
+    // ++ --
+//    kPrintlnt(*(valuesPtr++));
+//    kPrintlnt(*(ptr--));
+    
+    kPrintlnt(*(++valuesPtr));
+    kPrintlnt(*(--ptr));
+    
+    // 遍历数组
+    for (int *p = values; p < values + n; p++) {
+        kPrintlnt(*p);
+    }
+    
+    // 字符串 复制
+    char string1[] = "this is a string with char array";
+    char string2[100];
+    int i;
+    for (i = 0; string1[i] != '\0'; i++) {
+        string2[i] = string1[i];
+    }
+    string2[i] = '\0';
+    
+    printf("string1 = %s \nstring2 = %s  \n", string1, string2);
+    
+    
 }
 
 // 函数指针的使用
-void functionPointer() {}
+void functionPointer() {
+    // 函数指针的声明      函数的返回值 (*变量名)(函数的参数列表)
+    
+    int (*ptr)(int, int);
+    ptr = getGcdNum;
+    int x = ptr(16, 42);
+    kPrintlnt(x);
+}
 
 // goto语句 union(联合) sizeof运算符
+void anotherGrammar() {
+    // 联合 同时只能保存一个值，只能取一个值 其他跟结构体一致
+    union mixed {
+        char c;
+        float f;
+        int i ;
+    };
+    union mixed m = {.f = 4.5};
+    printf("%f\n", m.f);
+    printf("%c\n", m.c);    // 不存在
+    
+    m.i = 10;
+    printf("%i\n", m.i);
+    printf("%f\n", m.f);    // 不存在
+    
+    // goto语句
+
+#ifdef DEBUG
+    goto this_is_label;
+#else
+    printf("垃圾\n");
+#endif
+    this_is_label: printf("this is go to there\n");
+    
+    // sizeof
+    struct person {
+        int age;
+        char name[20];
+        char sex[2];
+    };
+    struct person p = {.age = 20, .name = "曹秀锦", .sex = "1"};
+    printf("%li\n", sizeof(p));
+    
+    Person *person2 = [[Person alloc] init];
+    person2.name = @"曹秀锦";
+    person2.age = 25;
+    
+    // 对于对象除了成员变量，会有额外的4个字节存储对象的isa指针
+    // 在这里sizeof好像不准确，值得怀疑
+    printf("%ld\n", sizeof(person2));
+
+}
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -310,7 +397,10 @@ int main(int argc, const char * argv[]) {
 //        ifDefineOrNdefine();
 //        structDefine();
 //        pointerDefineAndUse();
-        structPointer();
+//        structPointer();
+//        arrayPointer();
+//        functionPointer();
+//        anotherGrammar();
     }
     return 0;
 }
