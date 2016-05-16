@@ -8,11 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PrimeNumber : NSObject
+__attribute__ ((objc_subclassing_restricted))
+@interface PrimeNumber : NSObject 
 
 // 获取指定范围内所有的素数
 + (NSArray *)primeNumberWithEndNumber:(NSInteger)maxNum;
 
 @property (nonatomic, copy) NSString *name;
+@end
 
+
+
+
+@interface Person : NSObject
+
+- (void)uziFighting __attribute__((objc_requires_super));
+@end
+
+
+
+
+@interface Father : Person
 @end

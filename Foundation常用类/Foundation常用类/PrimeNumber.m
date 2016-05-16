@@ -45,4 +45,51 @@
     return NO;
 }
 
+#warning constructor / destructor
+/* dyld(动态链接器)加载的时候调用，在main函数之前调用
+*/
++ (void)load {
+    NSLog(@"begin load");
+}
+
+/* 第一次调用该类的任何方法的时候调用
+*/
++ (void)initialize {
+    NSLog(@"begin initialize");
+}
+
+__attribute__((constructor(102)))
+static void beforeMain() {
+    NSLog(@"beforeMain 102");
+}
+
+__attribute__((constructor(103)))
+static void beforeMain103() {
+    NSLog(@"beforeMain 103");
+}
+
+__attribute__((destructor))
+static void afterMain() {
+    NSLog(@"aftereMain");
+}
+@end
+
+
+
+
+@implementation Person
+
+- (void)uziFighting {
+    NSLog(@"fighting UZI");
+}
+@end
+
+
+
+
+@implementation Father
+
+- (void)uziFighting {
+    [super uziFighting];
+}
 @end

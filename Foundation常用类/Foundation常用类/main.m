@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "PrimeNumber.h"
 
-/* NSNumber         所有的基本数据类型都可以被封装成NSNumber
- * NSFileManager    文件管理类
- * NSProcessInfo    正在运行程序的进程信息
-*/
+    /* NSNumber         所有的基本数据类型都可以被封装成NSNumber
+     * NSFileManager    文件管理类
+     * NSProcessInfo    正在运行程序的进程信息
+     * NSFileHandle     文件句柄，处理的文件的标记
+    */
+static void *dddd = &dddd;
+
 // char unichar 字节数
 void charByte(){
     char t = 's';       // 1个字节
@@ -31,7 +34,7 @@ void containsWithEqual() {
     NSMutableArray *arrayM = @[].mutableCopy;
     PrimeNumber *p = [PrimeNumber new];
     p.name = @"jack";
-    
+ 
     PrimeNumber *p1 = [PrimeNumber new];
     p1.name = @"nick";
     [arrayM addObject:p];
@@ -209,15 +212,92 @@ void otherFileFunction() {
 // 程序的进程信息 NSProcessInfo
 void getPrecessInfo() {
     // 获取当前进程的信息
+    NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+    
     // 获取当前进程的参数
+    NSArray *arguments = [processInfo arguments];
+    NSLog(@"当前进程的参数：%@", arguments);
+    
     // 获取当前的环境变量
+    NSDictionary *environment = [processInfo environment];
+    NSLog(@"当前的环境变量：%@", environment);
+    
     // 获取操作系统赋予进程的唯一数字
+    int identifier = [processInfo processIdentifier];
+    NSLog(@"进程identifier：%d", identifier);
+    
     // 获取进程名称
+    NSString *processName = [processInfo processName];
+    NSLog(@"进程名称：%@", processName);
+    
     // 每次调用产生不同的单值字符，可以用来生成单值临时文件名
-    //
+    NSString *globalStr = [processInfo globallyUniqueString];
+    NSLog(@"单值字符：%@", globalStr);
+    
+    // 获取主机系统名称
+    NSString *hostName = [processInfo hostName];
+    NSLog(@"主机系统名称：%@", hostName);
+    
+    // 获取系统版本号String
+    NSString *systemStr = [processInfo operatingSystemVersionString];
+    NSLog(@"系统版本号String%@", systemStr);
+    
+    // 设置当前进程名称
+    [processInfo setProcessName:@"This is a Foundation "];
+    NSLog(@"进程名称：%@", [processInfo processName]);
+    NSLog(@"当前进程的参数：%@", [processInfo environment]);
+}
+
+// 文件句柄  NSFileHandle
+// 什么是句柄：一个句柄就是你给一个文件，设备，套接字(socket)或管道的一个名字, 以便帮助你记住你正处理的名字, 并隐藏某些缓存等的复杂性。
+// 文件句柄 就是给一个文件添加标记，表示是正在处理的文件。
+void fileHandleOperation() {
+    
+    // 将testA中的数据拼接到testB之后，在存到testC中。
+    NSFileHandle *handleA = [NSFileHandle fileHandleForReadingAtPath:@"/Users/Silence/Desktop/testA.text"];
+    NSFileHandle *handleB = [NSFileHandle fileHandleForReadingAtPath:@"/Users/Silence/Desktop/testB.text"];
+    NSFileHandle *handleC = [NSFileHandle fileHandleForWritingAtPath:@"/Users/Silence/Desktop/testC.text"];
+    
+    NSData *data1 = [handleA readDataToEndOfFile];
+    NSData *data2 = [handleB readDataToEndOfFile];
+    
+    [handleC seekToFileOffset:0];
+    [handleC writeData:data1];
+    [handleC writeData:data2];
+    
+    [handleA closeFile];
+    [handleB closeFile];
+    [handleC closeFile];
+}
+
+// __attribute__ 语法
+void attributeGrammar() {
+    
+//    NSString *str = @"1234\a56"@"789";
+//    NSLog(@"%@", str);
+    
+    [PrimeNumber primeNumberWithEndNumber:100];
+
+    typedef struct __attribute__((objc_boxable)){
+        CGFloat x, y, width, height;
+    }XXRect;
+    
+//    CGRect rect1 = {1, 2, 3, 4};
+//    NSValue *value1 = @(rect1); //can't auto boxed
+    
+    XXRect rect2 = {1, 2, 3, 4};
+    NSValue *value2 = @(rect2);
+    NSLog(@"%s", value2.objCType);
+    
+}
+
+// __attribute__ enable_if
+void printValueAge(int age) __attribute__((enable_if(age > 0 && age < 120, "火星人？"))){
+    NSLog(@"%d", age);
 }
 
 int main(int argc, const char * argv[]) {
+    NSLog(@"main begin");
     @autoreleasepool {
 //        charByte();
 //        getPrimeNumeber();
@@ -227,8 +307,10 @@ int main(int argc, const char * argv[]) {
 //        enumFileAtPath();
 //        getAllFiles(@"/Users/Silence/Desktop/testTableView", nil);
 //        otherFileFunction();
-        getPrecessInfo();
-        
+//        getPrecessInfo();
+//        fileHandleOperation();
+        attributeGrammar();
+        printValueAge(110);
     }
     return 0;
 }
