@@ -10,4 +10,9 @@
 
 @implementation Person
 
++(void)initialize {
+    if (self == [Person self]) {
+        
+    }
+}
 @end
