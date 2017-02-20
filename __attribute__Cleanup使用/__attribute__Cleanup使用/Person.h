@@ -10,4 +10,7 @@
 
 @interface Person : NSObject
 
+- (void)personTTT
+__attribute__((deprecated("This the function is deprecated")));
+
 @end

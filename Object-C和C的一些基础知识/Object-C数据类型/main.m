@@ -335,6 +335,8 @@ void arrayPointer() {
     
 }
 
+void hhhhhh(int a){
+}
 // 函数指针的使用
 void functionPointer() {
     // 函数指针的声明      函数的返回值 (*变量名)(函数的参数列表)
@@ -343,6 +345,11 @@ void functionPointer() {
     ptr = getGcdNum;
     int x = ptr(16, 42);
     kPrintlnt(x);
+    
+//    typedef void NSUncaughtExceptionHandler(NSException *exception);
+    typedef void dd(int a) ;
+    dd *d;
+    d = hhhhhh;
 }
 
 // goto语句 union(联合) sizeof运算符
@@ -382,11 +389,49 @@ void anotherGrammar() {
     Person *person2 = [[Person alloc] init];
     person2.name = @"曹秀锦";
     person2.age = 25;
+    person2.sex =@"1";
     
     // 对于对象除了成员变量，会有额外的4个字节存储对象的isa指针
     // 在这里sizeof好像不准确，值得怀疑
     printf("%ld\n", sizeof(person2));
 
+}
+
+// const 常量标示符
+void constDefine () {
+#define Log(var)            printf(#var "  %s\n", var)
+#define LogPlace(var)       printf(#var "  %p\n", var)
+    
+    static NSString * const kFirstConst = @"This is first";
+    static const NSString * kSecondConst = @"This is second";
+    
+    LogPlace(kFirstConst);
+    LogPlace(kSecondConst);
+    
+    NSString *tempStr = @"A";
+
+//    kFirstConst = tempStr;
+    kSecondConst = tempStr;
+    LogPlace(kFirstConst);
+    LogPlace(kSecondConst);
+    
+    static int * const p1 = 100;
+    static const int *p2 = 100;
+    LogPlace(p1);
+    LogPlace(p2);
+    
+    int *p3 = 2;
+    
+//    p1 = p3;  // Build Failed
+    p2 = p3;    // Build Succeeded
+//    *p1 = 3;    // Build Succeeded but runing is crash
+//    *p2 = 3;  // Build Failed
+    LogPlace(p1);
+    LogPlace(p2);
+}
+
+void enumDDD() {
+    
 }
 
 int main(int argc, const char * argv[]) {
@@ -401,6 +446,7 @@ int main(int argc, const char * argv[]) {
 //        arrayPointer();
 //        functionPointer();
 //        anotherGrammar();
+        constDefine ();
     }
     return 0;
 }

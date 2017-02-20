@@ -77,6 +77,7 @@ void runtimeDemo() {
     
     NSObject *obj = [NSObject new];
     Person *p = [Person new];
+    [p personTTT];
     NSLog(@"%@", obj.class);
     NSLog(@"%@", p.class);
 }
