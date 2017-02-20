@@ -62,6 +62,8 @@ void attributeCleanUp() {
 void runtimeDemo() {
     // (id)[NSObject class] 对象的类是 NSObject meta class ,而 [NSObject class]就是NSObject类
     // 而NSObject meta class是NSObject类的子类
+    // isKindOfClass: 来确定一个对象是否是一个类的成员，或者是派生自该类的成员
+    // isMemberOfClass: 只能确定一个对象是否是当前类的成员
     // http://ww2.sinaimg.cn/mw690/979e2950gw1f3yeu91hg1j20fa0fztan.jpg
     BOOL res1 = [(id)[NSObject class] isKindOfClass:[NSObject class]];
     BOOL res2 = [(id)[NSObject class] isMemberOfClass:[NSObject class]];
@@ -69,17 +71,25 @@ void runtimeDemo() {
     BOOL res4 = [(id)[Person class] isMemberOfClass:[Person class]];
     NSLog(@"\n %d\n %d\n %d\n %d\n", res1, res2, res3, res4);
     
-    NSLog(@"%@", [NSObject class]);
-    NSLog(@"%@", [Person class]);
+    NSLog(@"%@==%p", [NSObject class], [NSObject class]);// NSObject类的地址
+    NSLog(@"%@==%p", object_getClass([NSObject class]), object_getClass([NSObject class]));// NSObject meta class类的地址
     
-    id n = (id)[NSObject class];
-    NSLog(@"%@", object_getClass(n));
+    
     
     NSObject *obj = [NSObject new];
     Person *p = [Person new];
+    NSLog(@"%@==%p", object_getClass(p), object_getClass(p));
+    NSLog(@"%@==%p", object_getClass([Person class]), object_getClass([Person class]));
+    
     [p personTTT];
-    NSLog(@"%@", obj.class);
-    NSLog(@"%@", p.class);
+    
+    // =>> NSLog(@"%@==%p", [NSObject class], [NSObject class]);
+    // =>> NSLog(@"%@==%p", object_getClass(obj), object_getClass(obj));
+    NSLog(@"%@==%p", obj.class, obj.class);
+    
+    // =>> NSLog(@"%@==%p", [Person class], [Person class]);
+    // =>> NSLog(@"%@==%p", object_getClass(p), object_getClass(p));
+    NSLog(@"%@==%p", p.class, p.class);
 }
 
 int main(int argc, const char * argv[]) {
