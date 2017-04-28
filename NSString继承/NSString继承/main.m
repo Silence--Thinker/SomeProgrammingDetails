@@ -45,10 +45,21 @@ void string_Demo02 () {
     }
 }
 
+void nsArray_Demo01 () {
+    NSArray *array = @[@"Raspberry", @"Peach", @"Banana", @"Blackberry", @"Blueberry", @"aPple",@"Apple", @"apple"];
+    // 指定比较器 进行比较
+    // NSString caseInsensitiveCompare 不区分大小写比较
+    // NSString localizedCompare 本地化 区分大小写比较
+    // NSString localizedCaseInsensitiveCompare 本地化 不区分大小写比较(苹果推荐)
+    NSArray *array2 = [array sortedArrayUsingSelector:@selector(localizedCompare:)];
+    NSLog(@"%@", array2);
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         stringClass_Demo01();
         string_Demo02();
+        nsArray_Demo01();
     }
     return 0;
 }
