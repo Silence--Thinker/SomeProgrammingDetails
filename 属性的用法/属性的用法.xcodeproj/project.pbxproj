@@ -1,0 +1,275 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBECDBD61EB98532003BC232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBECDBD51EB98532003BC232 /* main.m */; };
+		CBECDBDF1EB985A4003BC232 /* Shape.m in Sources */ = {isa = PBXBuildFile; fileRef = CBECDBDE1EB985A4003BC232 /* Shape.m */; };
+		CBECDBE21EB98631003BC232 /* ColorableShape.m in Sources */ = {isa = PBXBuildFile; fileRef = CBECDBE11EB98631003BC232 /* ColorableShape.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CBECDBD01EB98532003BC232 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CBECDBD21EB98532003BC232 /* 属性的用法 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "属性的用法"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBECDBD51EB98532003BC232 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBECDBDD1EB985A4003BC232 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		CBECDBDE1EB985A4003BC232 /* Shape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shape.m; sourceTree = "<group>"; };
+		CBECDBE01EB98631003BC232 /* ColorableShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorableShape.h; sourceTree = "<group>"; };
+		CBECDBE11EB98631003BC232 /* ColorableShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorableShape.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBECDBCF1EB98532003BC232 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBECDBC91EB98532003BC232 = {
+			isa = PBXGroup;
+			children = (
+				CBECDBD41EB98532003BC232 /* 属性的用法 */,
+				CBECDBD31EB98532003BC232 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBECDBD31EB98532003BC232 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBECDBD21EB98532003BC232 /* 属性的用法 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBECDBD41EB98532003BC232 /* 属性的用法 */ = {
+			isa = PBXGroup;
+			children = (
+				CBECDBDC1EB98574003BC232 /* Readonly_Readwrite */,
+				CBECDBD51EB98532003BC232 /* main.m */,
+			);
+			path = "属性的用法";
+			sourceTree = "<group>";
+		};
+		CBECDBDC1EB98574003BC232 /* Readonly_Readwrite */ = {
+			isa = PBXGroup;
+			children = (
+				CBECDBDD1EB985A4003BC232 /* Shape.h */,
+				CBECDBDE1EB985A4003BC232 /* Shape.m */,
+				CBECDBE01EB98631003BC232 /* ColorableShape.h */,
+				CBECDBE11EB98631003BC232 /* ColorableShape.m */,
+			);
+			path = Readonly_Readwrite;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBECDBD11EB98532003BC232 /* 属性的用法 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBECDBD91EB98532003BC232 /* Build configuration list for PBXNativeTarget "属性的用法" */;
+			buildPhases = (
+				CBECDBCE1EB98532003BC232 /* Sources */,
+				CBECDBCF1EB98532003BC232 /* Frameworks */,
+				CBECDBD01EB98532003BC232 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "属性的用法";
+			productName = "属性的用法";
+			productReference = CBECDBD21EB98532003BC232 /* 属性的用法 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBECDBCA1EB98532003BC232 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Silence;
+				TargetAttributes = {
+					CBECDBD11EB98532003BC232 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CBECDBCD1EB98532003BC232 /* Build configuration list for PBXProject "属性的用法" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CBECDBC91EB98532003BC232;
+			productRefGroup = CBECDBD31EB98532003BC232 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBECDBD11EB98532003BC232 /* 属性的用法 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBECDBCE1EB98532003BC232 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBECDBE21EB98631003BC232 /* ColorableShape.m in Sources */,
+				CBECDBD61EB98532003BC232 /* main.m in Sources */,
+				CBECDBDF1EB985A4003BC232 /* Shape.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CBECDBD71EB98532003BC232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CBECDBD81EB98532003BC232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CBECDBDA1EB98532003BC232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CBECDBDB1EB98532003BC232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBECDBCD1EB98532003BC232 /* Build configuration list for PBXProject "属性的用法" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBECDBD71EB98532003BC232 /* Debug */,
+				CBECDBD81EB98532003BC232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBECDBD91EB98532003BC232 /* Build configuration list for PBXNativeTarget "属性的用法" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBECDBDA1EB98532003BC232 /* Debug */,
+				CBECDBDB1EB98532003BC232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBECDBCA1EB98532003BC232 /* Project object */;
+}
