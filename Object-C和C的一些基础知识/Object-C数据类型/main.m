@@ -66,12 +66,20 @@ void enumDefine() {
     } A;
     
     enum : NSUInteger {ss, kkk}sss;
+    sss = kkk;
     if (sss == ss) {
         NSLog(@"我勒个去");
     }
     unsigned int i = (unsigned int)-129;
     
     NSLog(@"%i", i);
+    
+    // C++ 11 标准的定义方式 指定为C 语言基础类型
+    typedef enum kkkType : NSInteger kkkType;
+    enum kkkType : NSInteger {
+        kkkType01,
+        kkkType02
+    };
 }
 
 // 闰年 宏定义, 带参数的宏定义
