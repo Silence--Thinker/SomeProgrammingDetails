@@ -10,6 +10,9 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        // 请看Person .h 文件
+        
     }
     return 0;
 }
