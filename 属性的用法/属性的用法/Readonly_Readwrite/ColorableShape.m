@@ -21,7 +21,7 @@
 @synthesize name;
 
 - (void)setColor:(NSString *)newColor {
-    color = [newColor copy];
+    _color = [newColor copy];
     name = [NSString stringWithFormat:@"name = %@", newColor];
 }
 

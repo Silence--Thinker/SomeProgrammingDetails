@@ -9,11 +9,11 @@
 #import "Shape.h"
 
 @implementation Shape
-@synthesize color;
+//@synthesize color = _color;
 
 - (instancetype)init {
     if (self = [super init]) {
-        color = @"blue";
+        _color = @"blue";
     }
     return self;
 }

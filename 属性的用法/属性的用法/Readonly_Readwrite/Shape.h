@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Shape : NSObject {
-    NSString *color;
+    NSString *_color;
 }
 
 @property (nonatomic, copy, readonly) NSString *color;
