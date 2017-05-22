@@ -31,6 +31,11 @@ void block_demo_01() {
         NSLog(@"%s", object_getClassName(block_b));
         NSLog(@"%@", block_b);
     }
+    
+    NSArray *array;
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+    }];
 }
 
 int main(int argc, const char * argv[]) {

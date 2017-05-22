@@ -16,7 +16,7 @@ void testFunction() {
     Father *father = [Father new];
     BOOL b1 = [father respondsToSelector:@selector(respondsToSelector:)];
     BOOL b2 = [Father respondsToSelector:@selector(respondsToSelector:)];
-    NSLog(@"%d, %d", b1, b2);
+    NSLog(@"%d, %d", b1, b2);   // 1  1
 }
 
 void *pthread_test(void * data) {
@@ -84,7 +84,7 @@ void testGCD_demo_02() {
     
     NSLog(@"=========阻塞主线程");
     while (1) {
-        NSLog(@"================4");
+//        NSLog(@"================4");
     }
     NSLog(@"=======2===阻塞主线程");
 }
@@ -229,7 +229,7 @@ int main(int argc, const char * argv[]) {
     
 //    testGCD_demo_01();
 //    testGCD_demo_02();
-//    testGCD_demo_03();
+    testGCD_demo_03();
     
 //    testNSOperation_demo_01();
 //    testNSOperation_demo_02();
