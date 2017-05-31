@@ -66,7 +66,8 @@ NSInvocation * invocation_callBack(const char * name, int age) {
     
     return invocation;
 }
-//
+
+// NSInvocation 调用方式 以及 注意细节
 void invocation_demo() {
     NSInvocation *invocation;
     @autoreleasepool {
