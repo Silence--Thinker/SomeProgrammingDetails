@@ -123,6 +123,7 @@ void block_demo_01() {
     }];
 }
 
+// block 与 函数指针的对比
 void block_different_functPoint () {
     Woman *m = [[Woman alloc] init];
 
@@ -133,12 +134,13 @@ void block_different_functPoint () {
         NSLog(@"%zd", value);
     }];
 }
+
 int main(int argc, const char * argv[]) {
     
 //    block_demo_01();
 //    functionPointer();
 //    invocation_demo();
-    
     block_different_functPoint();
+    
     return 0;
 }
