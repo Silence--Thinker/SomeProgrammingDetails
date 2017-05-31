@@ -19,11 +19,67 @@
 
 @interface ViewController ()
 
+// 用 “串行同步队列” 可以替代同步锁
+@property (nonatomic, copy) NSString *string_01;
+@property (nonatomic, copy) NSString *string_02;
+@property (nonatomic, copy) NSString *string_03;
+
+@property (nonatomic, strong) dispatch_queue_t syncQueue;   // 同步队列
+@property (nonatomic, strong) dispatch_queue_t asyncQueue;  // 异步队列
 @end
-@implementation ViewController
+@implementation ViewController {
+    NSString *_string_01;
+    NSString *_string_02;
+    NSString *_string_03;
+}
+@dynamic string_01, string_02, string_03;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _syncQueue = dispatch_queue_create("com.silence.syncQueue", DISPATCH_QUEUE_CONCURRENT);
+    _asyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+}
+
+// first selecter
+- (NSString *)string_01 {
+    __block NSString *string;
+    dispatch_sync(_syncQueue, ^{
+        string = _string_01;
+    });
+    return string;
+}
+- (void)setString_01:(NSString *)string_01 {
+    dispatch_sync(_syncQueue, ^{
+        _string_01 = string_01;
+    });
+}
+
+// second selecter
+- (NSString *)string_02 {
+    __block NSString *string;
+    dispatch_sync(_syncQueue, ^{
+        string = _string_02;
+    });
+    return string;
+}
+- (void)setString_02:(NSString *)string_02 {
+    dispatch_async(_syncQueue, ^{
+        _string_02 = string_02;
+    });
+}
+
+// third selecter
+- (NSString *)string_03 {
+    __block NSString *string;
+    dispatch_sync(_asyncQueue, ^{
+        string = _string_03;
+    });
+    return string;
+}
+- (void)setString_03:(NSString *)string_03 {
+    dispatch_barrier_async(_asyncQueue, ^{
+        _string_03 = string_03;
+    });
 }
 
 void no_lock_demo () {
