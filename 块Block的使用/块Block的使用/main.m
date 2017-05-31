@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "Woman.h"
 
 void block_demo_01() {
     void (^block)() = ^(){
@@ -38,8 +39,19 @@ void block_demo_01() {
     }];
 }
 
-int main(int argc, const char * argv[]) {
-    block_demo_01();
+void block_different_functPoint () {
+    Woman *m = [[Woman alloc] init];
+
+//    void (* point)(NSInteger value) = functionForPointer;
+    [m functionWithFunctPointer:functionForPointer];
     
+    [m functionWithBlockPointer:^(NSInteger value) {
+        NSLog(@"%zd", value);
+    }];
+}
+int main(int argc, const char * argv[]) {
+//    block_demo_01();
+    
+    block_different_functPoint();
     return 0;
 }
