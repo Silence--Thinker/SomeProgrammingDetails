@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 #import "Person.h"
+#import "Woman.h"
 
 // 排序 ascendingFlag =>> 是否是升序排列
 NSInteger numericalSortFn(id obj1, id obj2, void * _Nullable ascendingFlag) {
@@ -122,10 +123,22 @@ void block_demo_01() {
     }];
 }
 
+void block_different_functPoint () {
+    Woman *m = [[Woman alloc] init];
+
+//    void (* point)(NSInteger value) = functionForPointer;
+    [m functionWithFunctPointer:functionForPointer];
+    
+    [m functionWithBlockPointer:^(NSInteger value) {
+        NSLog(@"%zd", value);
+    }];
+}
 int main(int argc, const char * argv[]) {
+    
 //    block_demo_01();
 //    functionPointer();
-    invocation_demo();
+//    invocation_demo();
     
+    block_different_functPoint();
     return 0;
 }
