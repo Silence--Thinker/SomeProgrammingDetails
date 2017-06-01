@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 #import "Person.h"
 #import "Woman.h"
+#import "MRCBlock.h"
+#import "ARCBlock.h"
 
 // 排序 ascendingFlag =>> 是否是升序排列
 NSInteger numericalSortFn(id obj1, id obj2, void * _Nullable ascendingFlag) {
@@ -41,6 +43,33 @@ void functionPointer() {
     
     NSLog(@"%@", arrayM);
 }
+
+int function_01 (int argument) {
+    return argument + 3;
+}
+typedef int(* function_pointer)(int a);
+
+function_pointer function_03(function_pointer temp) {
+    function_pointer t = function_01;
+    int tempInt = temp(4);
+    NSLog(@"%zd", tempInt);
+    return t;
+}
+// 一个比较复杂的方法声明
+void function_declaration () {
+    // (* myFunctionPointer)(int (*)(int)) 是一个函数指针,他的返回值是一个int (* )(int) 这样的函数指针
+    int (* (* myFunctionPointer)(int (*)(int))) (int);
+    // ==>>
+    function_pointer pointer1 = function_01;
+    
+    myFunctionPointer = function_03;
+    function_pointer pointer2 = myFunctionPointer(pointer1);
+    int result = pointer2(5);
+    
+    NSLog(@"%zd", result);
+}
+
+
 
 // NSInvocation 封装 回调
 NSInvocation * invocation_callBack(const char * name, int age) {
@@ -94,7 +123,39 @@ void invocation_demo() {
     }
 }
 
-// block 定义
+
+// block 与 函数指针的对比
+void block_different_functPoint () {
+    Woman *m = [[Woman alloc] init];
+    
+    //    void (* point)(NSInteger value) = functionForPointer;
+    [m functionWithFunctPointer:functionForPointer];
+    
+    [m functionWithBlockPointer:^(NSInteger value) {
+        NSLog(@"%zd", value);
+    }];
+}
+
+
+// block 字面量 =>> 块字面量
+void block_literal() {
+//    ^(argument_list){}; 块字面量的定义  没有名称，所以有时我们也叫匿名函数
+//    ^(int n) {return  2 * n;};
+    int j = ^(int n) { return 2 * n; }(9);
+    NSLog(@"j = %zd", j);
+}
+
+// block 指针 =>> 块指针
+void block_point() {
+    // return_type (^name)(list of argument types); // block指针定义
+    int (^doubler)(int a);
+    doubler = ^(int a) {
+        return 2 * a;
+    };
+    int j = doubler(3);
+    NSLog(@"j = %zd", j);
+}
+
 void block_demo_01() {
     void (^block)() = ^(){
         NSLog(@"this is a block");
@@ -124,24 +185,45 @@ void block_demo_01() {
     }];
 }
 
-// block 与 函数指针的对比
-void block_different_functPoint () {
-    Woman *m = [[Woman alloc] init];
-
-//    void (* point)(NSInteger value) = functionForPointer;
-    [m functionWithFunctPointer:functionForPointer];
+// 块变量 使用__block修饰的变量
+/*
+ 跟其他自动变量一样，块变量一开始是在栈上分配的。
+ 但是如果复制一个引用块变量的块，就会把块变量与块一起从栈上移到堆上
+ */
+void block_demo_02() {
+    int j = 10;
+    int (^blockPtr)(int) = ^(int n){ return j + n ;};
+    int k = blockPtr(5);
+    NSLog(@"k = %zd", k);
     
-    [m functionWithBlockPointer:^(NSInteger value) {
-        NSLog(@"%zd", value);
-    }];
+    __block int m = 10;
+    int (^blockPtr2)(int) = ^(int n){
+        m += 5;
+        return m + n ;
+    };
+    int l = blockPtr2(5);
+    NSLog(@"l = %zd", l);
 }
+
+void block_demo_03() {
+    MRCBlock *mrcBlock = [MRCBlock new];
+    NSLog(@"%@", mrcBlock);
+}
+
 
 int main(int argc, const char * argv[]) {
     
-//    block_demo_01();
 //    functionPointer();
 //    invocation_demo();
-    block_different_functPoint();
+//    function_declaration();
+    
+//    block_different_functPoint();
+    
+//    block_literal();
+//    block_point();
+//    block_demo_01();
+    block_demo_02();
+//    block_demo_03()
     
     return 0;
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CB7E58CF1EDEA54A00995602 /* Woman.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7E58CE1EDEA54A00995602 /* Woman.m */; };
+		CBB835F71EDFEE500071CB38 /* MRCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB835F61EDFEE500071CB38 /* MRCBlock.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBB835FA1EDFEE600071CB38 /* ARCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB835F91EDFEE600071CB38 /* ARCBlock.m */; };
 		CBCEFA9E1ECC54F600E8C131 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCEFA9D1ECC54F600E8C131 /* main.m */; };
 		E874D7AF1EDC6B5E0036AEE3 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E874D7AE1EDC6B5E0036AEE3 /* Person.m */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,10 @@
 /* Begin PBXFileReference section */
 		CB7E58CD1EDEA54A00995602 /* Woman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Woman.h; sourceTree = "<group>"; };
 		CB7E58CE1EDEA54A00995602 /* Woman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Woman.m; sourceTree = "<group>"; };
+		CBB835F51EDFEE500071CB38 /* MRCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCBlock.h; sourceTree = "<group>"; };
+		CBB835F61EDFEE500071CB38 /* MRCBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCBlock.m; sourceTree = "<group>"; };
+		CBB835F81EDFEE600071CB38 /* ARCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCBlock.h; sourceTree = "<group>"; };
+		CBB835F91EDFEE600071CB38 /* ARCBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCBlock.m; sourceTree = "<group>"; };
 		CBCEFA9A1ECC54F600E8C131 /* 块Block的使用 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "块Block的使用"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCEFA9D1ECC54F600E8C131 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E874D7AD1EDC6B5E0036AEE3 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -64,10 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				CBCEFA9D1ECC54F600E8C131 /* main.m */,
-                E874D7AD1EDC6B5E0036AEE3 /* Person.h */,
+				E874D7AD1EDC6B5E0036AEE3 /* Person.h */,
 				E874D7AE1EDC6B5E0036AEE3 /* Person.m */,
 				CB7E58CD1EDEA54A00995602 /* Woman.h */,
 				CB7E58CE1EDEA54A00995602 /* Woman.m */,
+				CBB835F51EDFEE500071CB38 /* MRCBlock.h */,
+				CBB835F61EDFEE500071CB38 /* MRCBlock.m */,
+				CBB835F81EDFEE600071CB38 /* ARCBlock.h */,
+				CBB835F91EDFEE600071CB38 /* ARCBlock.m */,
 			);
 			path = "块Block的使用";
 			sourceTree = "<group>";
@@ -130,7 +140,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E874D7AF1EDC6B5E0036AEE3 /* Person.m in Sources */,
+				CBB835FA1EDFEE600071CB38 /* ARCBlock.m in Sources */,
 				CB7E58CF1EDEA54A00995602 /* Woman.m in Sources */,
+				CBB835F71EDFEE500071CB38 /* MRCBlock.m in Sources */,
 				CBCEFA9E1ECC54F600E8C131 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +194,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -223,6 +236,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
