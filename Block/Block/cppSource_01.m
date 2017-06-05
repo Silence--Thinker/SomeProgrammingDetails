@@ -24,6 +24,7 @@ struct __main_block_impl_0 {
     struct __main_block_desc_0* Desc;   // 描述block 的结构体变量
     
     // __main_block_impl_0              // 结构体的构造函数，初始化 impl 和 Desc
+    // 每一个类型的Block 他们的构造函数是不同的,捕捉的外部变量不同
     __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int flags=0) {
         impl.isa = &_NSConcreteStackBlock;
         impl.Flags = flags;
@@ -32,7 +33,7 @@ struct __main_block_impl_0 {
     }
 };
 
-// bolck 实现函数
+// bolck 实现函数 这个函数的返回值对应block的返回值，代码即:block的实现
 static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
     
     printf("tempBlock string\n");
