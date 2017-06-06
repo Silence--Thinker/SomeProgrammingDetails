@@ -31,7 +31,7 @@ struct __Block_byref_i_0 {
 
 // 函数: 当block从 栈 拷贝到 堆 时，调用此函数
 extern "C" __declspec(dllexport) void _Block_object_assign(void *, const void *, const int);
-// 函数: 当block从 堆内存 释放时，调用此函数
+// 函数: 当block从 堆内存 配置数据时，调用此函数
 extern "C" __declspec(dllexport) void _Block_object_dispose(const void *, const int);
 
 extern "C" void _Block_object_assign(void *, const void *, const int)

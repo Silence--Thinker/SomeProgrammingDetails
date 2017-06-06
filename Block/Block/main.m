@@ -31,8 +31,14 @@ NSMutableArray *captureArray () {
     }];
     return arrayM;
 }
-
+static int index_b = 10;
+Block_double blk_temp = ^(int a) {
+    return a * index_b;
+};
 int main(int argc, const char * argv[]) {
+//    blk_temp(3);
+//    NSLog(@"%zd %@",blk_temp(3), [blk_temp class]);
+//    
 //    int value = 3;       
 //    Block_double blk = ^(int a) {
 //        return a * value;
@@ -61,9 +67,20 @@ int main(int argc, const char * argv[]) {
 //    int tempValue = tempBlock(3);
 //    NSLog(@"%zd", tempValue);
     
-    __block int j = 10;
-    void (^blockPtr_1)() = ^(){ j += 15; NSLog(@"j = %zd", j);};
-    blockPtr_1();
+//    __block int j = 10;
+//    void (^blockPtr_1)() = ^(){ j += 15; NSLog(@"j = %zd", j);};
+//    blockPtr_1();
+    int value = 10;
+    NSLog(@"%p", &value);
+    int (^doubler)(int);
+    {
+        doubler = ^(int n){
+            NSLog(@"%p", &value);
+            return n * value;
+        };
+    }
+    int j = doubler(9);
+    NSLog(@"%zd %@", j, [doubler class]);
     
     return 0;
 }
