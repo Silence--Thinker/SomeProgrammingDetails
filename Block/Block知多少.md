@@ -1,3 +1,7 @@
+* https://www.zybuluo.com/MicroCai/note/51116
+* https://www.zybuluo.com/MicroCai/note/57603
+* https://www.zybuluo.com/MicroCai/note/58470
+
 ### block的定义
 #### 块字面量
 --- 

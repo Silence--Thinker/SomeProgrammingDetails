@@ -229,11 +229,11 @@ int main(int argc, const char * argv[]) {
     
 //    testGCD_demo_01();
 //    testGCD_demo_02();
-    testGCD_demo_03();
+//    testGCD_demo_03();
     
 //    testNSOperation_demo_01();
 //    testNSOperation_demo_02();
-//    testNSOperation_demo_03();
+    testNSOperation_demo_03();
     
     return 0;
 }

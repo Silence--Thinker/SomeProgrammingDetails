@@ -67,8 +67,8 @@ void SingletonDemo_03() {
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        SingletonDemo_01();
-        SingletonDemo_02();
+//        SingletonDemo_01();
+//        SingletonDemo_02();
         SingletonDemo_03();
     }
     return 0;
