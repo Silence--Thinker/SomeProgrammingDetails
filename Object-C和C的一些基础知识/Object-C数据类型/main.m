@@ -101,7 +101,7 @@ void stringTest() {
     printf(kStringTest("我就是我不一样的烟火\n"\n));
     
     int var = 100;
-    kPrintlnt(var);// =>> printf("100" " = %i \n", var)
+    kPrintlnt(var);// =>> printf("100" " = %i \n", var) printf(#var " = %i \n", var)
 //    printf("100" " = %i \n", var);
     
     int var1 = 199;
@@ -114,6 +114,22 @@ void stringTest() {
     kPrintlntx(1);
     kPrintlntx(2);
     kPrintlntx(3);
+    
+    typedef NS_ENUM(NSInteger, Type)
+    {
+        Type_A,
+        Type_B,
+    };
+const NSArray *__TypeArray;
+#define TypeGet (__TypeArray == nil ? __TypeArray = [[NSArray alloc] initWithObjects:\
+                @"Type_A", @"Type_B", nil] : __TypeArray)
+
+#define TypeString(type) ([TypeGet objectAtIndex:type])
+#define TypeEnum(string) ([TypeGet indexOfObject:string])
+    
+    Type type = Type_B;
+    NSLog(@"%@", TypeString(type));
+    
 }
 
 // 自定义预处理宏 #ifdef、#endif、#else、#ifndef、#if、#undef
@@ -446,7 +462,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        enumDefine();
 //        leapYear();
-//        stringTest();
+        stringTest();
 //        ifDefineOrNdefine();
 //        structDefine();
 //        pointerDefineAndUse();
@@ -454,7 +470,7 @@ int main(int argc, const char * argv[]) {
 //        arrayPointer();
 //        functionPointer();
 //        anotherGrammar();
-        constDefine ();
+//        constDefine ();
     }
     return 0;
 }

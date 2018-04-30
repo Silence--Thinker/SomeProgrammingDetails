@@ -282,12 +282,30 @@ void attributeGrammar() {
         CGFloat x, y, width, height;
     }XXRect;
     
+    typedef struct __attribute__((objc_boxable)) {
+        NSUInteger x;
+        NSInteger y;
+    }XXPath;
+    
 //    CGRect rect1 = {1, 2, 3, 4};
 //    NSValue *value1 = @(rect1); //can't auto boxed
+    
+    XXPath path = {1, 2};
+    NSValue *va = @(path);
+    NSLog(@"%s", va.objCType);
     
     XXRect rect2 = {1, 2, 3, 4};
     NSValue *value2 = @(rect2);
     NSLog(@"%s", value2.objCType);
+    
+    NSDictionary *dict = @{@"key" : @(path)};
+    NSValue *keyV = [dict objectForKey:@"key"];
+    NSLog(@"%@", keyV);
+    
+    NSUInteger x = NSNotFound;
+    if (x == NSNotFound) {
+        NSLog(@"%zd", x);
+    }
     
 }
 
@@ -310,7 +328,7 @@ int main(int argc, const char * argv[]) {
 //        getPrecessInfo();
 //        fileHandleOperation();
         attributeGrammar();
-        printValueAge(110);
+//        printValueAge(110);
     }
     return 0;
 }
