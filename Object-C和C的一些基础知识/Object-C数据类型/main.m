@@ -429,8 +429,16 @@ void constDefine () {
     static NSString * const kFirstConst = @"This is first";
     static const NSString * kSecondConst = @"This is second";
     
+    static NSString * const kConstURL = @"www.baidu.com/book/";
+    
     LogPlace(kFirstConst);
     LogPlace(kSecondConst);
+    
+    NSString *temp = kConstURL;
+    NSURL *url1 = [NSURL URLWithString:temp];
+    NSURL *url2 = [NSURL URLWithString:kConstURL];
+    
+    NSLog(@"%@\n %@", url1, url2);
     
     NSString *tempStr = @"A";
 
@@ -462,7 +470,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        enumDefine();
 //        leapYear();
-        stringTest();
+//        stringTest();
 //        ifDefineOrNdefine();
 //        structDefine();
 //        pointerDefineAndUse();
@@ -470,7 +478,7 @@ int main(int argc, const char * argv[]) {
 //        arrayPointer();
 //        functionPointer();
 //        anotherGrammar();
-//        constDefine ();
+        constDefine ();
     }
     return 0;
 }
