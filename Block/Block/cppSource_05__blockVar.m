@@ -16,8 +16,8 @@ int main(int argc, const char * argv[]) {
 struct __block_impl {
     void *isa;      // 实例对象
     int Flags;      // 按位承载block 的附加信息
-    int Reserved;   // 保留变量
     void *FuncPtr;  // 函数指针，指向Block 要执行的函数
+    int Reserved;   // 保留变量
 };
 
 // block 修饰的外部变量

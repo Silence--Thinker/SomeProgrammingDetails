@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E8B010A31CCF1A250017B613 /* PrimeNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B010A21CCF1A250017B613 /* PrimeNumber.m */; };
 		E8CA14411CCE05DC0022D93D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CA14401CCE05DC0022D93D /* main.m */; };
+		E8DDC55022F041E2000F5DFE /* PrimeNumber+category.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDC54F22F041E2000F5DFE /* PrimeNumber+category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		E8B010A21CCF1A250017B613 /* PrimeNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimeNumber.m; sourceTree = "<group>"; };
 		E8CA143D1CCE05DC0022D93D /* Foundation常用类 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Foundation常用类"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8CA14401CCE05DC0022D93D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E8DDC54E22F041E2000F5DFE /* PrimeNumber+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PrimeNumber+category.h"; sourceTree = "<group>"; };
+		E8DDC54F22F041E2000F5DFE /* PrimeNumber+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PrimeNumber+category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				E8CA14401CCE05DC0022D93D /* main.m */,
 				E8B010A11CCF1A250017B613 /* PrimeNumber.h */,
 				E8B010A21CCF1A250017B613 /* PrimeNumber.m */,
+				E8DDC54E22F041E2000F5DFE /* PrimeNumber+category.h */,
+				E8DDC54F22F041E2000F5DFE /* PrimeNumber+category.m */,
 			);
 			path = "Foundation常用类";
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = E8CA14341CCE05DC0022D93D;
@@ -124,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B010A31CCF1A250017B613 /* PrimeNumber.m in Sources */,
+				E8DDC55022F041E2000F5DFE /* PrimeNumber+category.m in Sources */,
 				E8CA14411CCE05DC0022D93D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

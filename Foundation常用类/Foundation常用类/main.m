@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PrimeNumber.h"
+#import "PrimeNumber+category.h"
 
     /* NSNumber         所有的基本数据类型都可以被封装成NSNumber
      * NSFileManager    文件管理类
@@ -318,7 +319,7 @@ int main(int argc, const char * argv[]) {
     NSLog(@"main begin");
     @autoreleasepool {
 //        charByte();
-//        getPrimeNumeber();
+        getPrimeNumeber();
 //        containsWithEqual()
 //        getFileAttribtes();
 //        creatFileAndDeleteFile();
@@ -327,7 +328,7 @@ int main(int argc, const char * argv[]) {
 //        otherFileFunction();
 //        getPrecessInfo();
 //        fileHandleOperation();
-        attributeGrammar();
+//        attributeGrammar();
 //        printValueAge(110);
     }
     return 0;

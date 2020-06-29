@@ -344,7 +344,7 @@ void nsCondition_demo() {
 //        sleep(2);
 //        NSLog(@"解锁");
 //        [lock signal];
-//        
+//
 //        sleep(2);
 //        NSLog(@"解锁");
 //        [lock signal];

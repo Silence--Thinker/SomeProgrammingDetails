@@ -43,7 +43,7 @@ void forwardInvocation_demo_03() {
     SEL selector = @selector(personWith:age:);
     [plant performSelector:selector withObject:@"caocaocao"];
     
-//    NSLog(@"%@", plant.person);
+    NSLog(@"%@", plant.person);
 }
     
 

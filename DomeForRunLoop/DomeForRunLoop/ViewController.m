@@ -22,6 +22,7 @@
     [super viewDidLoad];
     [self runLoop_timer_demo_01];
 }
+
 static int flage = 0;
 - (dispatch_queue_t)custom_global_queue {
     if (_custom_global_queue == nil) {
@@ -34,25 +35,25 @@ static int flage = 0;
 - (void)runLoop_timer_demo_01 {
     __weak typeof(self) weakSelf = self;
     dispatch_async(self.custom_global_queue, ^{
-        weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(timerRun:) userInfo:nil repeats:YES];
+        weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerRun:) userInfo:nil repeats:YES];
 
         NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
         NSLog(@"==%p==%p", runLoop, [NSRunLoop mainRunLoop]);
 
-        [[NSRunLoop currentRunLoop] addTimer:weakSelf.timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] addTimer:weakSelf.timer forMode:NSRunLoopCommonModes];
         [[NSRunLoop currentRunLoop] run];
     });
 }
 
 - (void)timerRun:(NSTimer *)timer {
-    NSLog(@"==%@==", [NSDate date]);
+    NSLog(@"==%@==%@", [NSDate date], [NSThread currentThread]);
     flage ++;
     if ( [NSRunLoop mainRunLoop].currentMode == UITrackingRunLoopMode) {
         NSLog(@"==滑动了==");
     }else {
         NSLog(@"==这是没有滑动==");
     }
-    if (flage == 4) {
+    if (flage == 5) {
         [self.timer invalidate];
         self.timer = nil;
         [[NSThread currentThread] cancel];

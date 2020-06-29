@@ -14,8 +14,8 @@ int main(int argc, const char * argv[]) {
 struct __block_impl {
     void *isa;      // 实例对象
     int Flags;      // 按位承载block 的附加信息
-    int Reserved;   // 保留变量
     void *FuncPtr;  // 函数指针，指向Block 要执行的函数
+    int Reserved;   // 保留变量
 };
 
 // block 实现的结构体，也是block 实现的入口
@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
     
     i = 10;
     
-    ((void (*)(__block_impl *))((__block_impl *)tempBlock)->FuncPtr)((__block_impl *)tempBlock);
+    (  (void (*)(__block_impl *)) ((__block_impl *)tempBlock)->FuncPtr )  ((__block_impl *)tempBlock);
     
     return 0;
 }

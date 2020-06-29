@@ -24,11 +24,11 @@ NSMutableArray *captureArray () {
     NSString *stirng = [NSString stringWithFormat:@"12"];
     NSLog(@"i = %p", &i);
     NSLog(@"stirng = %p", stirng);
-    [arrayM addObject:^(void){
+    [arrayM addObject:[^(void){
         NSLog(@"i = %p", &i);
         NSLog(@"stirng = %p", stirng);
-        NSLog(@"this ia block %zd", i++);
-    }];
+        NSLog(@"this ia block %d", i++);
+    } copy]];
     return arrayM;
 }
 static int index_b = 10;
@@ -36,20 +36,21 @@ Block_double blk_temp = ^(int a) {
     return a * index_b;
 };
 int main(int argc, const char * argv[]) {
+    // not auto release count MRC
 //    blk_temp(3);
 //    NSLog(@"%zd %@",blk_temp(3), [blk_temp class]);
-//    
-//    int value = 3;       
+//
+//    int value = 3;
 //    Block_double blk = ^(int a) {
 //        return a * value;
 //    };
 //    NSLog(@"%@", [blk class]);
-    
+//
 //    block_demo(^(int a) {
 //        NSLog(@"double %zd", a);
 //        return a * value;
 //    });
-//    
+//
 //    block_d(3);
     
     
@@ -59,28 +60,35 @@ int main(int argc, const char * argv[]) {
 //    ((void(^)(void))array[0])();
 //    ((void(^)(void))array[0])();
     
+    
+    
 //    int (^tempBlock)(int a);
 //    tempBlock = ^(int a){
 //        return 2 * a;
 //    };
-    
 //    int tempValue = tempBlock(3);
 //    NSLog(@"%zd", tempValue);
-    
+//
 //    __block int j = 10;
-//    void (^blockPtr_1)() = ^(){ j += 15; NSLog(@"j = %zd", j);};
+//    void (^blockPtr_1)() = ^(){
+//        j += 15;
+//        NSLog(@"j = %zd", j);
+//    };
 //    blockPtr_1();
-    int value = 10;
-    NSLog(@"%p", &value);
-    int (^doubler)(int);
-    {
-        doubler = ^(int n){
-            NSLog(@"%p", &value);
-            return n * value;
-        };
-    }
-    int j = doubler(9);
-    NSLog(@"%zd %@", j, [doubler class]);
+    
+    
+    
+//    int value = 10;
+//    NSLog(@"%p", &value);
+//    int (^doubler)(int);
+//    {
+//        doubler = ^(int n){
+//            NSLog(@"%p", &value);
+//            return n * value;
+//        };
+//    }
+//    int j = doubler(9);
+//    NSLog(@"%zd %@", j, [doubler class]);
     
     return 0;
 }

@@ -26,7 +26,5 @@ __attribute__ ((objc_subclassing_restricted))
 @end
 
 
-
-
 @interface Father : Person
 @end
